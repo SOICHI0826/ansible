@@ -1,0 +1,12 @@
+---
+- name: Display inventory hostnames and usernames
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Display the hostname
+      debug:
+        msg: "Hostname: {{ inventory_hostname }}"
+
+    - name: Display the username
+      debug:
+        msg: "Username: {{ ansible_user | default('no ansible_user specified') }}"
